@@ -1,0 +1,41 @@
+{
+  "name": "babel-plugin-transform-component-name",
+  "version": "0.0.1",
+  "description": "Add display name to react components",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "pretest": "npm run build",
+    "test": "nyc --instrument false lsc test/start",
+    "posttest": "nyc report -r lcov -r json && mv coverage/coverage-final.json coverage/coverage.json",
+    "preversion": "npm test",
+    "prepublishOnly": "npm test"
+  },
+  "repository": "dk00/babel-plugin-transform-component-name",
+  "keywords": [
+    "babel-plugin"
+  ],
+  "author": "dk00 <dk@csie.org>",
+  "license": "Unlicense",
+  "bugs": "https://github.com/dk00/babel-plugin-transform-component-name/issues",
+  "homepage": "https://github.com/dk00/babel-plugin-transform-component-name#readme",
+  "files": [
+    "lib"
+  ],
+  "peerDependencies": {
+    "babel-plugin-transform-react-jsx": ""
+  },
+  "devDependencies": {
+    "babel-core": "",
+    "babel-plugin-istanbul": "",
+    "babel-plugin-transform-es2015-modules-commonjs": "",
+    "babel-preset-stage-0": "",
+    "babel-register": "",
+    "livescript": "",
+    "livescript-next": "",
+    "nyc": "",
+    "rollup": "",
+    "rollup-plugin-babel": "",
+    "tape": ""
+  }
+}
