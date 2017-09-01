@@ -9,7 +9,7 @@ Add display name to react components.
 
 Let react dev tools show component names instead of unknown.
 
-If lower case started JSX element type names are availible in the scope, they are treated as custom components.
+If lower case started JSX element type names are available in the scope, they are treated as custom components.
 
 ## Examples
 

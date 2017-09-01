@@ -28,20 +28,16 @@ function should-add-name {node}
     node._has-name = true
     path.replace-with merge [node, that]
 
-function add-alias path, alias, id
-  binding = t.variable-declarator id, t.identifier alias
-  path.find (.is-statement!)
-  .insert-after t.variable-declaration \const [binding]
+function map-type path, name
+  path.scope._JSX-name-map?[name]
 
-!function rewrite-type {scope, node}
-  {name} = node.name
+!function rewrite-type {scope, {name: {name}}: node}: path
   alias = camelCase name
   if /^[a-z]/test name and scope.get-binding alias
     id = scope.generate-uid-identifier alias
-    scope.rename alias, id.name
-    add-alias that.path, alias, id
-    that.identifier.name = alias
-    node.name.name = id.name
+    that.scope.rename alias, id.name
+    (that.scope._JSX-name-map ||= {})[name] = id.name
+  node.name.name = map-type that, name if path.find -> map-type it, name
 
 function plugin
   t := it.types

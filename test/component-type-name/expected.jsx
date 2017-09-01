@@ -1,10 +1,9 @@
 import UserScreen from './user-screen';
-import profile from './profile';
-const _profile = profile;
-import userAvatar from './user-avatar';
+import _profile from './profile';
+import { userAvatar as _userAvatar } from './avatar';
 
-const _userAvatar = userAvatar;
 <UserScreen>
   <_userAvatar />
+  <_profile />
   <_profile />
 </UserScreen>;
