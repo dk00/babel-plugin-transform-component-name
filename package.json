@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-transform-component-name",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Add display name to react components",
   "main": "lib/index.js",
   "scripts": {
