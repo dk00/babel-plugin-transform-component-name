@@ -21,6 +21,8 @@ cases =
   nested: 'add display name to component in nested expressions'
   \component-type-name :
     'treat type name as custom if it can be found in the scope'
+  \render-props :
+    'treat type name as custom if it can be found in parameters'
 
 test 'Component name' (t) ->
   Object.keys cases .for-each ->

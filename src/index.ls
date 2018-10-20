@@ -13,8 +13,7 @@ function extract-name
 
 function find-name path, file: opts: {filename}
   {node: source} = path.find -> it.node.id || it.is-statement!
-  name = extract-name source or basename filename, extname filename
-  t.value-to-node {display-name: kebab-case name}
+  extract-name source or basename filename, extname filename
 
 function returns-JSX {body}
   result = body.body?slice? -1 .0?argument || body
@@ -23,10 +22,13 @@ function returns-JSX {body}
 function should-add-name {node}
   !node._has-name && returns-JSX node
 
+function set-name
+  t.value-to-node display-name: kebab-case it
+
 !function add-name {node}: path, state
   if should-add-name path and find-name path, state
     node._has-name = true
-    path.replace-with merge [node, that]
+    path.replace-with merge [node, set-name that]
 
 function map-type path, name
   path.scope._JSX-name-map?[name]
@@ -41,10 +43,12 @@ function map-type path, name
 
 function plugin
   t := it.types
+  rewrite-name = if process.env.NODE_ENV != \production
+    ArrowFunctionExpression: add-name
   object-assign := t.member-expression (t.identifier \Object),
     t.identifier \assign
-  visitor:
-    ArrowFunctionExpression: add-name
+  visitor: Object.assign {}, rewrite-name,
     JSXOpeningElement: rewrite-type
+
 
 export default: plugin
