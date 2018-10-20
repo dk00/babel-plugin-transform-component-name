@@ -1,7 +1,7 @@
 import
   fs: {read-file-sync}
-  \babel-core : {transform}
-  \../src/index : component-name
+  '@babel/core': {transform}
+  '../src/index': component-name
 
 options =
   filename: \/path/to/test.jsx

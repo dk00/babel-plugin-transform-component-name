@@ -6,10 +6,8 @@
   "scripts": {
     "build": "rollup -c",
     "pretest": "npm run build",
-    "test": "nyc --instrument false lsc test/start",
-    "posttest": "nyc report -r lcov -r json && mv coverage/coverage-final.json coverage/coverage.json",
-    "preversion": "npm test",
-    "prepublishOnly": "npm test"
+    "test": "nyc --instrument false -r text -r html -r json lsc test",
+    "prepublishOnly": "npm run build"
   },
   "repository": "dk00/babel-plugin-transform-component-name",
   "keywords": [
@@ -22,20 +20,16 @@
   "files": [
     "lib"
   ],
-  "peerDependencies": {
-    "babel-plugin-transform-react-jsx": ""
-  },
   "devDependencies": {
-    "babel-core": "",
+    "@babel/core": "",
+    "@babel/plugin-transform-modules-commonjs": "",
+    "@babel/register": "",
     "babel-plugin-istanbul": "",
-    "babel-plugin-transform-es2015-modules-commonjs": "",
-    "babel-preset-stage-0": "",
-    "babel-register": "",
-    "livescript": "",
-    "livescript-next": "",
+    "babel-plugin-livescript": "",
+    "babel-preset-upcoming": "",
     "nyc": "",
     "rollup": "",
-    "rollup-plugin-babel": "",
+    "rollup-plugin-babel": "4.0.0-beta.8",
     "tape": ""
   }
 }
