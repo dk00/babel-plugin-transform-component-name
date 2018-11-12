@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-transform-component-name",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Add display name to react components",
   "main": "lib/index.js",
   "scripts": {
@@ -21,15 +21,15 @@
     "lib"
   ],
   "devDependencies": {
-    "@babel/core": "",
-    "@babel/plugin-transform-modules-commonjs": "",
-    "@babel/register": "",
-    "babel-plugin-istanbul": "",
-    "babel-plugin-livescript": "",
-    "babel-preset-upcoming": "",
-    "nyc": "",
-    "rollup": "",
+    "@babel/core": "^7.1.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.1.0",
+    "@babel/register": "^7.0.0",
+    "babel-plugin-istanbul": "^5.1.0",
+    "babel-plugin-livescript": "0.0.3",
+    "babel-preset-upcoming": "^7.1.0",
+    "nyc": "^13.1.0",
+    "rollup": "^0.67.1",
     "rollup-plugin-babel": "4.0.0-beta.8",
-    "tape": ""
+    "tape": "^4.9.1"
   }
 }
