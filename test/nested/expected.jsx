@@ -1,4 +1,4 @@
-const UserAvatar = pure(Object.assign(({ url }) => <div class="avatar">
+const UserAvatar = pure(Object.assign(({ url }) => <div>
   <img src={url} />
 </div>, {
   displayName: "user-avatar"

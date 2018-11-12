@@ -1,5 +1,5 @@
 export default Object.assign(({ url }) => {
-  return <div class="avatar">
+  return <div>
     <img src={url} />
   </div>;
 }, {

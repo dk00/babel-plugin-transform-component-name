@@ -1,4 +1,4 @@
 export default ({url}) =>
-<div class="avatar">
+<div>
   <img src={url} />
 </div>

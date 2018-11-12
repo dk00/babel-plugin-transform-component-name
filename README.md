@@ -7,9 +7,11 @@ Add display name to react components.
 [![npm](https://img.shields.io/npm/v/babel-plugin-transform-component-name.svg)](https://npm.im/babel-plugin-transform-component-name)
 [![dependencies](https://david-dm.org/dk00/babel-plugin-transform-component-name/status.svg)](https://david-dm.org/dk00/babel-plugin-transform-component-name)
 
-Let react dev tools show component names instead of unknown.
+Let react dev tools show component names instead of unknown, by adding names to functional components for development builds.
 
 If lower case started JSX element type names are available in the scope, they are treated as custom components.
+
+JSX attribute `class` are renamed to `className`.
 
 ## Examples
 
@@ -26,7 +28,7 @@ export default ({url}) =>
 
 ```jsx
 export default Object.assign(({url}) =>
-<div class="avatar">
+<div className="avatar">
   <img src={url} />
 </div>, {displayName: 'avatar'})
 ```

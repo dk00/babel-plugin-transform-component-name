@@ -1,6 +1,6 @@
 export default ({url}) => {
   return (
-  <div class="avatar">
+  <div>
     <img src={url} />
   </div>)
 }

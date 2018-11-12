@@ -40,6 +40,8 @@ function map-type path, name
     that.scope.rename alias, id.name
     (that.scope._JSX-name-map ||= {})[name] = id.name
   node.name.name = map-type that, name if path.find -> map-type it, name
+  node.attributes.for-each ->
+    if it.name.name == \class then it.name.name := \className
 
 function plugin
   t := it.types
@@ -49,6 +51,5 @@ function plugin
     t.identifier \assign
   visitor: Object.assign {}, rewrite-name,
     JSXOpeningElement: rewrite-type
-
 
 export default: plugin

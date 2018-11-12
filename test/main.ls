@@ -23,6 +23,7 @@ cases =
     'treat type name as custom if it can be found in the scope'
   \render-props :
     'treat type name as custom if it can be found in parameters'
+  \class-name : 'rename class to className'
 
 test 'Component name' (t) ->
   Object.keys cases .for-each ->
