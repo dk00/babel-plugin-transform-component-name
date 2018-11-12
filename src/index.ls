@@ -33,13 +33,22 @@ function set-name
 function map-type path, name
   path.scope._JSX-name-map?[name]
 
-!function rewrite-type {scope, {name: {name}}: node}: path
-  alias = camelCase name
-  if /^[a-z]/test name and scope.get-binding alias
+!function rewrite-name name, {scope}: path
+  alias = camelCase name.name
+  if /^[a-z]/test name.name and scope.get-binding alias
     id = scope.generate-uid-identifier alias
     that.scope.rename alias, id.name
-    (that.scope._JSX-name-map ||= {})[name] = id.name
-  node.name.name = map-type that, name if path.find -> map-type it, name
+    (that.scope._JSX-name-map ||= {})[name.name] = id.name
+  name.name = map-type that, name.name if path.find -> map-type it, name.name
+
+function rewrite-expression name, path
+  if name
+    if name.name then rewrite-name name, path
+    rewrite-expression name.object, path
+    rewrite-expression name.property, path
+
+!function rewrite-type {{name}: node}: path
+  rewrite-expression name, path
   node.attributes.for-each ->
     if it.name.name == \class then it.name.name := \className
 

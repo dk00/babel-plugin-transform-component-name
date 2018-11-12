@@ -24,6 +24,7 @@ cases =
   \render-props :
     'treat type name as custom if it can be found in parameters'
   \class-name : 'rename class to className'
+  member: 'rename identifiers in member expressions'
 
 test 'Component name' (t) ->
   Object.keys cases .for-each ->
