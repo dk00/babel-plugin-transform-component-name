@@ -50,7 +50,7 @@ function rewrite-expression name, path
 !function rewrite-type {{name}: node}: path
   rewrite-expression name, path
   node.attributes.for-each ->
-    if it.name.name == \class then it.name.name := \className
+    if it.name?name == \class then it.name.name := \className
 
 function plugin
   t := it.types

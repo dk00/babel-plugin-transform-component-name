@@ -1,5 +1,5 @@
 export default (Image => Object.assign(({ url }) => <div className="avatar">
-  <Image src={url} />
+  <Image {...{ url }} />
 </div>, {
   displayName: "test"
 }));
